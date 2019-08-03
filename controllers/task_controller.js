@@ -1,6 +1,6 @@
 const Task = require('../models').Task;
 module.exports = {
-    home: (req, res) =>{
+    list: (req, res) =>{
         Task.findAll().then( tasks => {
             res.render('tasks/index',{tasks: tasks});
         });
@@ -16,5 +16,9 @@ module.exports = {
     },
     new: (req, res)=>{
         res.render('tasks/new');
-    }
+    },
+    index: (req, res)=>{
+        Task.findAll()
+            .then(result => res.json(result));
+    },
 }
