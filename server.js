@@ -8,7 +8,7 @@ const port = '3000';
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('view engine', 'pug');
-app.use(taskRoutes);
+app.use(taskRoutes); //indicamos que las rutas las va a tomar desde el archivo de rutas
 
 
 

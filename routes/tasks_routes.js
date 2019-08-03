@@ -9,8 +9,8 @@ router.route('/').get((req, res)=>{
 });
 
 router.route('/tasks').get(tasks.home)
-    .post((req, res)=>{
-        res.send('Listo para recibir una peticion vía post 👍');
-    });
+    .post(tasks.create);
 
-    module.exports = router;
+router.get('/tasks/new', tasks.new);
+
+module.exports = router;
