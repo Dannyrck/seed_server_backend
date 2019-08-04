@@ -21,4 +21,18 @@ module.exports = {
         Task.findAll()
             .then(result => res.json(result));
     },
+    selectTask: (req, res) =>{
+        Task.findAll({where: {
+            id: req.params.id
+        }})
+            .then(result => res.json(result));
+    },
+    actualizarTask: (req,res)=>{
+        Task.update({description: req.body.description}, {
+            where: {
+                id: req.params.id
+            },
+        })
+            .then( result=> res.redirect('/tasks/'+req.params.id));
+    }
 }
