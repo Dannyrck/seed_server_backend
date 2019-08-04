@@ -34,5 +34,14 @@ module.exports = {
             },
         })
             .then( result=> res.redirect('/tasks/'+req.params.id));
+    },
+    editweb: (req, res)=>{
+        Task.findAll({
+            where: {
+                id: req.params.id
+            }
+        }).then( result => {
+            res.render('tasks/edit',{tarea:result})
+        })
     }
 }

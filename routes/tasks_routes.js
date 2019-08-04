@@ -12,6 +12,7 @@ router.route('/tasks').get(TasksController.list)
     .post(TasksController.create);
 
 router.get('/tasks/new', TasksController.new);
+router.get('/tasks/:id/edit',TasksController.editweb);
 
 router.route('/tasks/:id') //wildcard
     .get(TasksController.selectTask)
